@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout E-commerce</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="check-out.css">
+</head>
+
+<body>
+    <nav>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="image/logo-main.png" alt="logo">
+        </div>
+        <button class="toggle-button" onclick="toggleNavbar()">☰</button>
+        <div class="menu">
+            <ul class="navbar">
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+            <div class="icons">
+                <img src="image/user.png" alt="user">
+                <span>User</span>
+                <img src="image/search.png" alt="search">
+                <span>Search</span>
+                <img src="image/heart.png" alt="heart">
+                <span>Wichlist</span>
+                <img src="image/shopping-cart.png" alt="shopping-cart">
+                <span>Cart</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="shop-header">
+        <div class="shop-header-content">
+            <img src="image/background-shop.png" alt="background-shop">
+            <div class="shop-header-logo">
+                <img src="image/logo-up-cart.png" alt="logo-up-cart">
+            </div>
+            <div class="shop-header-text">
+                <div class="cart">
+                    <h1>Checkout</h1>
+                </div>
+                <p> <span class="shop-home">Home > </span> Chechout</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- checkout section -->
+
+    <div class="checkout-container">
+        <div class="billing-details">
+            <h2>Billing details</h2>
+            <form>
+                <div class="form-group">
+                    <div>
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name">
+                    </div>
+                    <div>
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name">
+                    </div>
+                </div>
+                <div class="company-inform">
+                    <div>
+                        <label for="company-name">Company Name (Optional)</label>
+                        <input type="text" id="company-name">
+                    </div>
+                    <div>
+                        <label for="country">Country / Region</label>
+                        <select id="country">
+                            <option>Sri Lanka</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="street-address">Street address</label>
+                        <input type="text" id="street-address">
+                    </div>
+                    <div>
+                        <label for="city">Town / City</label>
+                        <input type="text" id="city">
+                    </div>
+                    <div>
+                        <label for="province">Province</label>
+                        <select id="province">
+                            <option>Western Province</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="zip-code">ZIP code</label>
+                        <input type="text" id="zip-code">
+                    </div>
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone">
+                    </div>
+                    <div>
+                        <label for="email">Email address</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div>
+                        <label for="additional-info">Additional Information</label>
+                        <textarea id="additional-info"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="order-summary">
+            <div class="head-total">
+                <h2>Order Summary</h2>
+                <h2>Subtotal</h2>
+            </div>
+            <div id="product-summary"></div> <!-- Dynamic product listing -->
+            <div class="summary-totals">
+                <div>
+                    <span>Subtotal</span>
+                    <span id="subtotal-price">Rs. 0</span>
+                </div>
+                <div class="total-all">
+                    <span>Total</span>
+                    <span id="total-price" class="total">Rs. 0</span>
+                </div>
+            </div>
+            <hr>
+            <div class="payment-container">
+                <label class="payment-option">
+                    <input type="radio" name="payment" checked>
+                    Direct Bank Transfer
+                </label>
+                <p class="payment-description">
+                    Make your payment directly into our bank account. Please use your Order ID as the payment reference.
+                    Your order will not be shipped until the funds have cleared in our account.
+                </p>
+                <label class="payment-option choices">
+                    <input type="radio" name="payment">
+                    Direct Bank Transfer
+                </label>
+                <label class="payment-option cash">
+                    <input type="radio" name="payment">
+                    Cash On Delivery
+                </label>
+                <p class="privacy-note">
+                    Your personal data will be used to support your experience throughout this website, to manage access
+                    to your account, and for other purposes described in our <a href="#">privacy policy</a>.
+                </p>
+                <button class="place-order-btn" onclick="confirmOrder()"><a href="sucsess-page.html">Place Order</a></button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <div class="feature-item">
+            <img src="image/hight-quality.png" alt="hight-quality">
+            <div class="feature-text">
+                <h4>High Quality</h4>
+                <p>crafted from top materials</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="image/warranty-protection.png" alt="warranty-protection">
+            <div class="feature-text">
+                <h4>Warranty Protection</h4>
+                <p>Over 2 years</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="image/free-shipping.png" alt="free-shipping">
+            <div class="feature-text">
+                <h4>Free Shipping</h4>
+                <p>Order over 150 $</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="image/support.png" alt="24/7-support">
+            <div class="feature-text">
+                <h4>24 / 7 Support</h4>
+                <p>Dedicated support</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer Section -->
+    <hr>
+    <footer class="footer">
+        <hr>
+        <div class="footer-middle">
+            <div class="footer-section address">
+                <img src="image/logo-footer.png" alt="logo-footer">
+                <p>400 University Drive Suite 200 Coral Gables,<br>FL 33134 USA</p>
+            </div>
+            <div class="footer-section">
+                <div class="footer-inform">Links</div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <div class="footer-inform ">Help</div>
+                <ul>
+                    <li><a href="#">Payment Options</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Privacy Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <div class="footer-inform">Newsletter</div>
+                <div class="subscribe-form">
+                    <div class="e-mail">Enter Your Email Address </div>
+                    <div class="subscribe">Subscribe </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2023 Funiro. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNavbar() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        } 
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cart = JSON.parse(localStorage.getItem("cart")) || {};
+            const productSummaryContainer = document.getElementById("product-summary");
+            const subtotalElement = document.getElementById("subtotal-price");
+            const totalElement = document.getElementById("total-price");
+
+            let subtotal = 0;
+
+            productSummaryContainer.innerHTML = ""; // Clear previous items
+            for (const product in cart) {
+                const item = cart[product];
+                const subtotalItem = item.price * item.quantity;
+
+                // Add item to the product summary
+                productSummaryContainer.innerHTML += `
+                    <div class="product-summary">
+                        <p>${product} x ${item.quantity}</p>
+                        <span class="summary-totals">Rs. ${subtotalItem.toLocaleString()}</span>
+                    </div>
+                `;
+
+                subtotal += subtotalItem; // Calculate subtotal
+            }
+
+            // Update subtotal and total
+            subtotalElement.textContent = `Rs. ${subtotal.toLocaleString()}`;
+            totalElement.textContent = `Rs. ${subtotal.toLocaleString()}`; // Assuming no additional charges
+        });
+
+        // Function to confirm the order and clear the cart
+        function confirmOrder() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || {};
+
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty. Add products to place an order.");
+                return;
+            }
+
+            // Process the current order
+            console.log("Order confirmed:", cart);
+
+            // Clear the cart from localStorage
+            localStorage.removeItem("cart");
+
+            // Notify the user
+            alert("Your order has been placed successfully!");
+
+            // Redirect to the success page
+            location.href = "sucsess-page.html";
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

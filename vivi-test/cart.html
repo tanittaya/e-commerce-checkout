@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <nav>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="image/logo-main.png" alt="logo">
+        </div>
+        <button class="toggle-button" onclick="toggleNavbar()">☰</button>
+        <div class="menu">
+            <ul class="navbar">
+                <li><a href="shop.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="icons">
+                <img src="image/user.png" alt="user">
+                <span>User</span>
+                <img src="image/search.png" alt="search">
+                <span>Search</span>
+                <img src="image/heart.png" alt="heart">
+                <span>Wishlist</span>
+                <img src="image/shopping-cart.png" alt="shopping-cart">
+                <span>Cart</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="shop-header">
+        <div class="shop-header-content">
+            <img src="image/background-shop.png" alt="background-shop">
+            <div class="shop-header-logo">
+                <img src="image/logo-up-cart.png" alt="logo-up-cart">
+            </div>
+            <div class="shop-header-text">
+                <div class="cart">
+                    <h1>Cart</h1>
+                </div>
+                <p><span class="shop-home">Home > </span> Cart</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="cart-container">
+        <div class="product-details">
+            <div class="cart-header">
+                <div class="detail-product product">Product</div>
+                <div class="detail-product price">Price</div>
+                <div class="detail-product quantity">Quantity</div>
+                <div class="detail-product subtotal">Subtotal</div>
+            </div>
+
+            <!-- Cart items will be dynamically inserted here -->
+            <div id="cart-items"></div>
+
+        </div>
+
+        <div class="total-details">
+            <h2>Cart Totals</h2>
+            <div class="totals-summary">
+                <div class="subtotal">
+                    <span>Subtotal</span>
+                    <span class="sub-price">Rs. 0</span>
+                </div>
+                <div class="total">
+                    <span>Total</span>
+                    <span id="total">Rs. 0</span>
+                </div>
+            </div>
+            <button class="checkout-btn" onclick="redirectToCheckout()">Check Out</button>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <div class="feature-item">
+            <img src="image/hight-quality.png" alt="hight-quality">
+            <div class="feature-text">
+                <h4>High Quality</h4>
+                <p>Crafted from top materials</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="image/warranty-protection.png" alt="warranty-protection">
+            <div class="feature-text">
+                <h4>Warranty Protection</h4>
+                <p>Over 2 years</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="image/free-shipping.png" alt="free-shipping">
+            <div class="feature-text">
+                <h4>Free Shipping</h4>
+                <p>Order over 150 $</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="image/support.png" alt="24/7-support">
+            <div class="feature-text">
+                <h4>24/7 Support</h4>
+                <p>Dedicated support</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <hr>
+    <footer class="footer">
+        <hr>
+        <div class="footer-middle">
+            <div class="footer-section address">
+                <img src="image/logo-footer.png" alt="logo-footer">
+                <p>400 University Drive Suite 200 Coral Gables,<br>FL 33134 USA</p>
+            </div>
+            <div class="footer-section">
+                <div class="footer-inform">Links</div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <div class="footer-inform">Help</div>
+                <ul>
+                    <li><a href="#">Payment Options</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Privacy Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <div class="footer-inform">Newsletter</div>
+                <div class="subscribe-form">
+                    <div class="e-mail">Enter Your Email Address </div>
+                    <div class="subscribe">Subscribe</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2023 Funiro. All rights reserved</p>
+        </div>
+    </footer>
+
+
+    <script src="action.js"></script> <!-- Load shared script -->
+    <script>
+        // When the cart page is loaded, call updateCart to show the cart contents
+        document.addEventListener('DOMContentLoaded', updateCart);
+        function redirectToCheckout() {
+            window.location.href = "check-out.html"; // ระบุ URL ของหน้าที่คุณต้องการไป
+        }
+    </script>
+
+    <!-- <script>
+
+        // Function to handle quantity change
+        function updateQuantity(product, quantity) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+            if (cart[product]) {
+                cart[product].quantity = quantity; // Update quantity
+                localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart
+                updateCart(); // Update the cart UI to reflect the changes
+            }
+        }
+
+
+        // Function to remove an item from the cart
+        function removeFromCart(product) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+            if (cart[product]) {
+                delete cart[product];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+
+        // Event listener to update quantity on change
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+
+            quantityInputs.forEach(input => {
+                input.addEventListener('input', (e) => {
+                    const product = e.target.dataset.product;
+                    const quantity = parseInt(e.target.value);
+                    updateQuantity(product, quantity);
+                });
+            });
+
+            updateCart();
+        });
+    </script> -->
+</body>
+
+</html>

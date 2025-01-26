@@ -1,0 +1,51 @@
+body {
+    text-align: center;
+    padding: 40px 0;
+    background: #EBF0F5;
+  }
+    h1 {
+      color: #88B04B;
+      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #404F5E;
+      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+      font-size:20px;
+      margin: 0;
+    }
+  i {
+    color: #9ABC66;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left:-15px;
+  }
+  .card {
+    background: white;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #C8D0D8;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  button {
+    width: 222px;
+    height: 58px;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 40px;
+    background-color: #F9F1E7;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่มเอฟเฟกต์ทรานซิชัน */
+}
+
+button:hover {
+    background-color: #9ABC66; /* สีเปลี่ยนเมื่อ hover */
+    color: #ffffff; /* เปลี่ยนสีข้อความเมื่อ hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
