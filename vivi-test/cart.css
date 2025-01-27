@@ -569,7 +569,6 @@ nav {
 
 .product-details {
     width: 817px;
-    /* height: 215px; */
     background: #fff;
     overflow: auto;
 }
@@ -846,21 +845,6 @@ nav {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* feature section */
 .features-section {
     background-color: #f8f4ee;

@@ -118,7 +118,7 @@
                 <h2>Order Summary</h2>
                 <h2>Subtotal</h2>
             </div>
-            <div id="product-summary"></div> <!-- Dynamic product listing -->
+            <div id="product-summary"></div>
             <div class="summary-totals">
                 <div>
                     <span>Subtotal</span>
@@ -156,8 +156,6 @@
         </div>
 
     </div>
-
-
     <!-- Features Section -->
     <div class="features-section">
         <div class="feature-item">
@@ -189,8 +187,6 @@
             </div>
         </div>
     </div>
-
-
     <!-- Footer Section -->
     <hr>
     <footer class="footer">
@@ -247,7 +243,7 @@
 
             let subtotal = 0;
 
-            productSummaryContainer.innerHTML = ""; // Clear previous items
+            productSummaryContainer.innerHTML = ""; 
             for (const product in cart) {
                 const item = cart[product];
                 const subtotalItem = item.price * item.quantity;
@@ -260,12 +256,12 @@
                     </div>
                 `;
 
-                subtotal += subtotalItem; // Calculate subtotal
+                subtotal += subtotalItem; 
             }
 
             // Update subtotal and total
             subtotalElement.textContent = `Rs. ${subtotal.toLocaleString()}`;
-            totalElement.textContent = `Rs. ${subtotal.toLocaleString()}`; // Assuming no additional charges
+            totalElement.textContent = `Rs. ${subtotal.toLocaleString()}`; 
         });
 
         // Function to confirm the order and clear the cart
@@ -276,17 +272,9 @@
                 alert("Your cart is empty. Add products to place an order.");
                 return;
             }
-
-            // Process the current order
             console.log("Order confirmed:", cart);
-
-            // Clear the cart from localStorage
             localStorage.removeItem("cart");
-
-            // Notify the user
             alert("Your order has been placed successfully!");
-
-            // Redirect to the success page
             location.href = "sucsess-page.html";
         }
 

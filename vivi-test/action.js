@@ -1,3 +1,4 @@
+// updatecart
 function updateCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
     const cartItemsContainer = document.getElementById('cart-items');
@@ -13,8 +14,6 @@ function updateCart() {
         totalElement.textContent = 'Rs 0';
         return;
     }
-
-    // Loop through each item in the cart and render it
     for (const product in cart) {
         const item = cart[product];
         const subtotal = item.price * item.quantity;
@@ -47,11 +46,9 @@ function updateCart() {
     subPriceElement.textContent = `Rs ${total.toLocaleString()}`;
     totalElement.textContent = `Rs ${total.toLocaleString()}`;
 
-    // Reattach event listeners for quantity inputs
     initializeQuantityListeners();
 }
 
-// Function to handle quantity changes dynamically
 function initializeQuantityListeners() {
     const quantityInputs = document.querySelectorAll('.quantity-input');
     quantityInputs.forEach(input => {
@@ -65,7 +62,7 @@ function initializeQuantityListeners() {
     });
 }
 
-// Function to update the quantity of a product
+// uodate quantity
 function updateQuantity(product, quantity) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
     if (cart[product]) {
@@ -76,24 +73,20 @@ function updateQuantity(product, quantity) {
 }
 
 
-// Function to add product to the cart
+//  add product to the cart
 function addToCart(productName, productInform, productPrice, productImage) {
-    // Clean the price (remove commas and other non-numeric characters)
     const cleanedPrice = parseFloat(productPrice.replace(/[^0-9.-]+/g, ''));
 
     if (isNaN(cleanedPrice)) {
         console.error("Invalid price for product:", productName);
         return;
     }
-
-    // Retrieve the cart from localStorage or initialize it
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
 
-    // If the product already exists in the cart, increase the quantity
     if (cart[productName]) {
         cart[productName].quantity += 1;
     } else {
-        // Add a new product to the cart with its details
+ 
         cart[productName] = {
             inform: productInform,
             price: cleanedPrice,
@@ -102,16 +95,13 @@ function addToCart(productName, productInform, productPrice, productImage) {
         };
     }
 
-    // Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Notify the user
     alert(`${productName} has been added to your cart!`);
     console.log("Cart updated:", cart);
 }
 
 
-// Example removeFromCart function
+// removeFromCart 
 function removeFromCart(product) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
     if (cart[product]) {

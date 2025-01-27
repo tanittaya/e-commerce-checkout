@@ -620,22 +620,21 @@ nav {
     font-size: 24px;
     font-weight: 600;
     color: #3A3A3A;
-    margin-top: 16px;
-    padding-left: 16px;
+    margin: 16px 0px 0px 16px;
 }
 .product-inform {
     font-size: 16px;
     color: #898989;
-    margin-top: 8px;
     font-weight: 500;
-    padding-left: 16px;
+    margin : 8px 0px 0px 16px;
 }
+
 .product-price {
     font-size: 20px;
     font-weight: 600;
     color: #333;
-    margin: 8px 0px 30px 0px;
-    padding-left: 16px;
+    margin: 8px 0px 30px 16px;
+    
 }
 .product-price del {
     color: #b0b0b0;
